@@ -1,0 +1,8 @@
+<div>
+  <app-dropdown [id]="'attributes'" [options]="eventAttributesDropdown"
+                [placeholder]="'Select an attribute'" [value]="customerFilterEventAttribute.eventAttribute"
+                (select)="attributeChanged($event)"></app-dropdown>
+  <app-filter *ngIf="customerFilterEventAttribute.eventAttribute"
+              [eventAttributeType]="customerFilterEventAttribute.eventAttributeType"
+  [filter]="customerFilterEventAttribute.filter"></app-filter>
+</div>

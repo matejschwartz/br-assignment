@@ -1,0 +1,9 @@
+<app-dropdown [id]="'filters'" [options]="filterOptions" [(value)]="filter.matchMode"></app-dropdown>
+<ng-container [ngSwitch]="eventAttributeType">
+  <ng-container *ngSwitchCase="'number'">
+    <input *ngIf="filter.matchMode == MatchMode.EQUAL_TO" type="number" [(ngModel)]="filter.value">
+    <input *ngIf="filter.matchMode == MatchMode.GREATER_THAN || filter.matchMode == MatchMode.IN_BETWEEN" type="number" [(ngModel)]="filter.minValue">
+    <input *ngIf="filter.matchMode == MatchMode.LESS_THAN || filter.matchMode == MatchMode.IN_BETWEEN" type="number" [(ngModel)]="filter.maxValue">
+  </ng-container>
+  <input *ngSwitchCase="'string'" type="text" [(ngModel)]="filter.value">
+</ng-container>

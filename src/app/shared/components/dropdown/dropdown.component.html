@@ -1,0 +1,4 @@
+<select [name]="id" [id]="id" [(ngModel)]="value" (ngModelChange)="onSelect($event)">
+  <option *ngIf="placeholder" [ngValue]="undefined">{{ placeholder }}</option>
+  <option *ngFor="let option of options" [ngValue]="option.value">{{ option.name }}</option>
+</select>

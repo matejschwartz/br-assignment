@@ -1,0 +1,25 @@
+<div class="card bg-gray">
+  <h3 class="h3 text-uppercase">Customer filter</h3>
+  <div class="text-right">
+    <button (click)="discardFilters()" class="btn btn-outline btn-red">Discard filters</button>
+  </div>
+  <div class="card bg-white" *ngIf="eventsFromBE.length">
+
+    <!-- Iterate trough all steps (events)  -->
+    <div class="flex space-between hovering" *ngFor="let event of customerFilter.events">
+      <app-customer-filter-step [customerFilterEvent]="event" [eventsFromBE]="eventsFromBE"></app-customer-filter-step>
+
+      <div class="on-hover">
+        <button (click)="deleteStep(event)"><fa-icon [icon]="faTrash"></fa-icon></button>
+        <button (click)="duplicateStep(event)"><fa-icon [icon]="faCopy"></fa-icon></button>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button (click)="addStep()" class="btn btn-outline text-center text-uppercase text-blue">
+        + Add Funnel Step
+      </button>
+    </div>
+  </div>
+  <button (click)="showFilter()" class="btn bg-yellow">Apply filters</button>
+</div>

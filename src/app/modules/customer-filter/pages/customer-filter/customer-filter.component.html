@@ -6,12 +6,12 @@
   <div class="card bg-white" *ngIf="eventsFromBE.length">
 
     <!-- Iterate trough all steps (events)  -->
-    <div class="flex space-between hovering" *ngFor="let event of customerFilter.events">
+    <div class="flex space-between hovering border-bottom mb-4" *ngFor="let event of customerFilter.events">
       <app-customer-filter-step [customerFilterEvent]="event" [eventsFromBE]="eventsFromBE"></app-customer-filter-step>
 
       <div class="on-hover">
-        <button (click)="deleteStep(event)"><fa-icon [icon]="faTrash"></fa-icon></button>
-        <button (click)="duplicateStep(event)"><fa-icon [icon]="faCopy"></fa-icon></button>
+        <button class="btn btn-icon" (click)="deleteStep(event)" title="Remove step"><fa-icon [icon]="faTrash"></fa-icon></button>
+        <button class="btn btn-icon" (click)="duplicateStep(event)" title="Duplicate step"><fa-icon [icon]="faCopy"></fa-icon></button>
       </div>
     </div>
 

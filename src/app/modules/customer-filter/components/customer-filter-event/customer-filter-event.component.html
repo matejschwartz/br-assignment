@@ -1,6 +1,7 @@
-<div>
-  <div>{{ customerFilterEvent.stepNumber }}. Step: {{ customerFilterEvent.stepName }}
-    <button class="btn btn-outline">
+<div class="mb-4">
+  <div class="mb-2">
+    {{ customerFilterEvent.stepNumber }}. Step: {{ customerFilterEvent.stepName }}
+    <button class="btn btn-icon">
       <fa-icon [icon]="faPencil"></fa-icon>
     </button>
   </div>
@@ -9,11 +10,11 @@
                     (select)="eventChanged($event)" [value]="customerFilterEvent.eventType"></app-dropdown>
 
       <div *ngIf="customerFilterEvent.eventType">
-        <div class="flex hovering" *ngFor="let attribute of customerFilterEvent.eventAttributes">
+        <div class="flex hovering mb-2" *ngFor="let attribute of customerFilterEvent.eventAttributes">
           <app-customer-filter-event-attribute [customerFilterEventAttribute]="attribute" [event]="event">
           </app-customer-filter-event-attribute>
           <div class="on-hover">
-            <button (click)="removeAttribute(attribute)"><fa-icon [icon]="faTrash"></fa-icon></button>
+            <button class="btn btn-icon" (click)="removeAttribute(attribute)" title="Remove attribute"><fa-icon [icon]="faTrash"></fa-icon></button>
           </div>
         </div>
 
@@ -22,6 +23,5 @@
           <button *ngIf="customerFilterEvent.eventAttributes.length > 0" class="btn btn-outline text-blue" (click)="addAttribute()">Refine more</button>
         </div>
       </div>
-
   </div>
 </div>

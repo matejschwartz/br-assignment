@@ -50,9 +50,30 @@ h3 {
     background: none;
   }
 
+  &.btn-icon {
+    padding: 0 0.5rem;
+    background: none;
+  }
+
   &.btn-red {
     color: red;
   }
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.border-bottom {
+  border-bottom: 1px solid map-get($colors, 'gray')
+}
+
+select {
+  margin-right: 0.5rem;
 }
 
 .flex {
